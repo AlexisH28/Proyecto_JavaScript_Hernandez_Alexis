@@ -29,11 +29,11 @@ Este proyecto es una aplicación web orientada a resoluciones móviles y de escr
 
 ## Bocetos 📝
 
-
+https://www.canva.com/design/DAGIdlasIR8/kXZs5LrxJ1s7czuoaycXVw/edit?utm_content=DAGIdlasIR8&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
 
 ## Diapositivas 
 
-
+https://www.canva.com/design/DAGIZQ9zE6A/WVYiBOKX_qACis2Z1rLrHg/edit?utm_content=DAGIZQ9zE6A&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
 
 ## Tecnologías 🖥️
 
