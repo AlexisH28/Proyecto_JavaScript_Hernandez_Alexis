@@ -6,12 +6,12 @@
 | 1. | [Interfaz_Principal](#capturas_de_pantalla-%EF%B8%8F) |
 | 2. | [Descripción](#descripción-) |
 | 3. | [Funcionalidades](#funcionalidades-) |
-| 4. | [Bocetos](#Bocetos) |
+| 4. | [Bocetos](#bocetos-) |
 | 5. | [Diapositivas](#Diapositivas) |
-| 6. | [Tecnologías](#Tecnologías) |
-| 7. | [USO](#USO) |
-| 8. | [Contribución](#Contribución) |
-| 9. | [Contacto](#Contacto) |
+| 6. | [Tecnologías](#tecnologías-%EF%B8%8F) |
+| 7. | [USO](#uso-) |
+| 8. | [Contribución](#contribución-) |
+| 9. | [Contacto](#contacto-) |
 
 ## Capturas_de_Pantalla ⬇️
 
@@ -21,12 +21,11 @@ Este proyecto es una aplicación web orientada a resoluciones móviles y de escr
 
 ## Funcionalidades 🌐
 
-- **Página de inicio:** Bienvenida y presentación de la tienda.
-- **Catálogo de productos:** Lista de productos con imágenes, descripciones y precios.
-- **Carrusel de imágenes:** Muestra imágenes destacadas y actividades relacionadas con el volleyball.
-- **Sección "Sobre Nosotros":** Información sobre la tienda.
-- **Sección de contacto:** Enlaces a nuestras redes sociales y formas de contacto.
-- **Sección de Carrito de Compras:** Encontrarás todos tus productos dividos por cantidad, precio, subtotal. También, lograrás evidenciar el total de la compra y podrás eliminar el producto que ya no desees.
+- **Login:** Permite ingresar de manera óptima al aplicativo web. De igual manera, es interactiva y los usuarios necesitarán cumplir con las condidiones adecuadas para poder completar el ingreso de manera correcta.
+- **Sistema CRUD:** Mediante este sistema los usuarios podrán crear, leer, actualizar (editar) y eliminar los múltiples registros de recursos (películas, series o libros) que se realizaron.
+- **Filtro y Búsqueda:** Este aplicativo cuenta con un sistema de filtrado para que los usuarios puedan visualizar el contenido que deseen, mediante el estado, formato, y plataforma del recurso. Además, cuenta con una barra de búsqueda con la cual se puede escribir directamente el nombre del recurso que desee.
+- **Interfaz de Usuario:** Esta aplicación web posee un diseño amigable, estético y responsive, lo cual genera una agradable interración por parte del usuario y un fácil uso. También, con la implementación del responsive, se permite la visualización del proyecto por otro tipo de dispositivos y resoluciones.
+- **Persistencia de Datos:** Se posee un excelente sistema de persistencia de datos, mediante **LocalStorage**, para guardar los datos del usuario de manera que, al cerrar y reabrir la aplicación, los datos no se pierdan.
 
 ## Bocetos 📝
 
