@@ -1,0 +1,31 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f4f4f4;
+}
+
+h1 {
+    font-family: 'Rubik', sans-serif;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+}
+
+.table thead th {
+    background-color: #343a40;
+    color: white;
+}
+
+.btn-primary {
+    background-color: #ff5733;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #c70039;
+}
+
+textarea {
+    resize: none;
+}
