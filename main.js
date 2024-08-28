@@ -37,17 +37,26 @@ function actualizarEstrellas(rating) {
 }
 
 // Función para validar los datos del formulario
-function validarFormulario(nombre, genero, fecha, valoracion) {
-    if (!nombre || !genero || !fecha || !valoracion) {
-        mostrarAlerta('Todos los campos son obligatorios', 'error');
+function validarFormulario(nombre, genero, plataforma, estado, formato, fecha, valoracion) {
+    // Verificar que todos los campos obligatorios estén llenos, excepto la fecha si el estado es "En Progreso" o "Pendiente"
+    if (!nombre || !genero || !plataforma || !formato || (estado !== 'En Progreso' && estado !== 'Pendiente' && !fecha)) {
+        mostrarAlerta('Todos los campos obligatorios deben ser completados', 'error');
         return false;
     }
     
-    if (new Date(fecha) > new Date()) {
-        mostrarAlerta('La fecha de terminación no puede ser en el futuro', 'error');
-        return false;
+    // Validar la fecha solo si el estado es "Terminado"
+    if (estado === 'Terminado') {
+        if (!fecha) {
+            mostrarAlerta('La fecha de terminación es obligatoria cuando el estado es Terminado', 'error');
+            return false;
+        }
+        if (new Date(fecha) > new Date()) {
+            mostrarAlerta('La fecha de terminación no puede ser en el futuro', 'error');
+            return false;
+        }
     }
-    
+
+    // Validar que la valoración esté entre 1 y 5
     if (valoracion < 1 || valoracion > 5) {
         mostrarAlerta('La valoración debe estar entre 1 y 5 estrellas', 'error');
         return false;
