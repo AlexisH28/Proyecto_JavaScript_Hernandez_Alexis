@@ -36,14 +36,13 @@ function actualizarEstrellas(rating) {
     });
 }
 
-// Función para validar los datos del formulario
 function validarFormulario(nombre, genero, plataforma, estado, formato, fecha, valoracion) {
-    // Verificar que todos los campos obligatorios estén llenos, excepto la fecha si el estado es "En Progreso" o "Pendiente"
-    if (!nombre || !genero || !plataforma || !formato || (estado !== 'En Progreso' && estado !== 'Pendiente' && !fecha)) {
+    // Verificar que todos los campos obligatorios estén llenos, excepto la fecha si el estado no es "Terminado"
+    if (!nombre || !genero || !plataforma || !formato || (estado == 'Terminado' && !fecha)) {
         mostrarAlerta('Todos los campos obligatorios deben ser completados', 'error');
         return false;
     }
-    
+
     // Validar la fecha solo si el estado es "Terminado"
     if (estado === 'Terminado') {
         if (!fecha) {
@@ -104,14 +103,14 @@ document.getElementById('resource-form').addEventListener('submit', function(eve
     const valoracion = document.getElementById('rating').value;
     const resena = document.getElementById('review').value;
 
-    if (!validarFormulario(nombre, genero, fecha, valoracion)) return;
+    if (!validarFormulario(nombre, genero, plataforma, estado, formato, fecha, valoracion)) return;
 
     const recursos = obtenerRecursos();
-    const recurso = { nombre, genero, plataforma, estado, formato, fecha, valoracion, resena };
+    const recurso = { nombre, genero, plataforma, estado, formato, fecha: estado === 'Terminado' ? fecha: '', valoracion, resena };
 
     recursos.push(recurso);
     guardarRecursos(recursos);
-    mostrarAlerta('Recurso añadido/actualizado exitosamente');
+    mostrarAlerta('Recurso añadido exitosamente');
     mostrarRecursos();
     this.reset();
     actualizarEstrellas(0); // Resetear las estrellas visuales
