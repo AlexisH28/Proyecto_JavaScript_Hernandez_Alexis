@@ -5,12 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" sizes="32x32" href="/Images/logo.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"> <!-- Para los iconos -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet"> <!-- Tailwind CSS -->
     <link rel="stylesheet" href="styles.css">
     <title>🍿 EYE CONTACT 🍿</title>
 </head>
 <body>
     <div class="container mt-5">
         <h1 class="text-center">🍿 Eye Contact 🍿</h1>
+        
+        <!-- Alerta para mensajes -->
+        <div id="alert-container" class="hidden"></div> <!-- Alerta oculta por defecto -->
         
         <!-- Formulario para añadir/actualizar recursos -->
         <form id="resource-form" class="mt-4">
@@ -27,17 +32,19 @@
             <div class="row mt-3">
                 <div class="col-md-4">
                     <label for="platform">Plataforma:</label>
-                    <select id="platform" class="form-control">
+                    <select id="platform" class="form-control" multiple>
                         <option value="Netflix">Netflix</option>
                         <option value="Amazon">Amazon</option>
                         <option value="HBO">HBO</option>
                         <option value="Kindle">Kindle</option>
+                        <option value="AppleBooks">AppleBooks</option>
+                        <option value="Wattpad">Wattpad</option>
                         <option value="Otro">Otro</option>
                     </select>
                 </div>
                 <div class="col-md-4">
                     <label for="status">Estado:</label>
-                    <select id="status" class="form-control">
+                    <select id="status" class="form-control" multiple>
                         <option value="En progreso">En progreso</option>
                         <option value="Terminado">Terminado</option>
                         <option value="Pendiente">Pendiente</option>
@@ -45,7 +52,7 @@
                 </div>
                 <div class="col-md-4">
                     <label for="format">Formato:</label>
-                    <select id="format" class="form-control">
+                    <select id="format" class="form-control" multiple>
                         <option value="Serie">Serie</option>
                         <option value="Película">Película</option>
                         <option value="Libro">Libro</option>
@@ -55,11 +62,19 @@
             <div class="row mt-3">
                 <div class="col-md-4">
                     <label for="completion-date">Fecha de Terminación:</label>
-                    <input type="date" id="completion-date" class="form-control">
+                    <input type="date" id="completion-date" class="form-control" required>
                 </div>
                 <div class="col-md-4">
                     <label for="rating">Valoración Final:</label>
-                    <input type="number" id="rating" class="form-control" min="1" max="5" required>
+                    <div id="rating-container" class="flex justify-between items-center">
+                        <!-- Generación de estrellas -->
+                        <i class="fas fa-star" data-value="1"></i>
+                        <i class="fas fa-star" data-value="2"></i>
+                        <i class="fas fa-star" data-value="3"></i>
+                        <i class="fas fa-star" data-value="4"></i>
+                        <i class="fas fa-star" data-value="5"></i>
+                    </div>
+                    <input type="hidden" id="rating" value="0">
                 </div>
                 <div class="col-md-4">
                     <label for="review">Reseña Personal:</label>
@@ -75,7 +90,7 @@
                 <input type="text" id="search-bar" class="form-control" placeholder="Buscar por nombre...">
             </div>
             <div class="col-md-2">
-                <select id="filter-status" class="form-control">
+                <select id="filter-status" class="form-control" multiple>
                     <option value="">Estado</option>
                     <option value="En progreso">En progreso</option>
                     <option value="Terminado">Terminado</option>
@@ -83,7 +98,7 @@
                 </select>
             </div>
             <div class="col-md-2">
-                <select id="filter-format" class="form-control">
+                <select id="filter-format" class="form-control" multiple>
                     <option value="">Formato</option>
                     <option value="Serie">Serie</option>
                     <option value="Película">Película</option>
@@ -91,7 +106,7 @@
                 </select>
             </div>
             <div class="col-md-2">
-                <select id="filter-platform" class="form-control">
+                <select id="filter-platform" class="form-control" multiple>
                     <option value="">Plataforma</option>
                     <option value="Netflix">Netflix</option>
                     <option value="Amazon">Amazon</option>
@@ -119,21 +134,7 @@
                 </tr>
             </thead>
             <tbody id="resource-list">
-                <tr>
-                    <td data-label="Nombre">Recurso 1</td>
-                    <td data-label="Género">Aventura</td>
-                    <td data-label="Plataforma">Netflix</td>
-                    <td data-label="Estado">En progreso</td>
-                    <td data-label="Formato">Serie</td>
-                    <td data-label="Fecha de Terminación">2024-08-27</td>
-                    <td data-label="Valoración">5</td>
-                    <td data-label="Reseña">Muy interesante</td>
-                    <td data-label="Acciones">
-                        <button class="btn btn-primary btn-sm">Editar</button>
-                        <button class="btn btn-danger btn-sm">Eliminar</button>
-                    </td>
-                </tr>
-                <!-- Filas generadas dinámicamente -->
+                <!-- Elementos dinámicos -->
             </tbody>
         </table>
     </div>
