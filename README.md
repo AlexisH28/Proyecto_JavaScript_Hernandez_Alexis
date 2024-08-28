@@ -3,15 +3,14 @@
 ## Tabla de Contenido 📋
 | Indice | Título  |
 |--|--|
-| 1. | [Interfaz_Principal](#capturas_de_pantalla-%EF%B8%8F) |
-| 2. | [Descripción](#descripción-) |
-| 3. | [Funcionalidades](#funcionalidades-) |
-| 4. | [Bocetos](#bocetos-) |
-| 5. | [Diapositivas](#Diapositivas) |
-| 6. | [Tecnologías](#tecnologías-%EF%B8%8F) |
-| 7. | [USO](#uso-) |
-| 8. | [Contribución](#contribución-) |
-| 9. | [Contacto](#contacto-) |
+| 1. | [Descripción](#descripción-) |
+| 2. | [Funcionalidades](#funcionalidades-) |
+| 3. | [Bocetos](#bocetos-) |
+| 4. | [Diapositivas](#Diapositivas) |
+| 5. | [Tecnologías](#tecnologías-%EF%B8%8F) |
+| 6. | [USO](#uso-) |
+| 7. | [Contribución](#contribución-) |
+| 8. | [Contacto](#contacto-) |
 
 ## Capturas_de_Pantalla ⬇️
 
