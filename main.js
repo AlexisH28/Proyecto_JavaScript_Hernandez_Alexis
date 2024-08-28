@@ -123,6 +123,7 @@ function editarRecurso(index) {
     document.getElementById('review').value = recurso.resena;
 
     eliminarRecurso(index); // Eliminar recurso para actualizarlo
+    mostrarAlerta('Recurso actualizado exitosamente');
 }
 
 // Función para eliminar un recurso
