@@ -1,31 +1,85 @@
+@font-face {
+    font-family: "Poppins-Semi";
+    src: url(/Fonts/Poppins-Regular.ttf) format('truetype');
+    font-style: normal;
+}
+
+/* Estilos generales */
 body {
-    font-family: 'Montserrat', sans-serif;
-    background-color: #f4f4f4;
+    font-family: "Poppins-Semi", sans-serif;
 }
 
 h1 {
-    font-family: 'Rubik', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 20px;
 }
 
-.container {
-    max-width: 900px;
-    margin: auto;
+/* Media Query para dispositivos móviles */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    form {
+        margin-top: 20px;
+    }
+
+    .row {
+        margin-bottom: 10px;
+    }
+
+    .row .col-md-6,
+    .row .col-md-4 {
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-bottom: 15px;
+    }
+
+    #search-bar {
+        margin-bottom: 15px;
+    }
+
+    /* Botón de submit centrado en móviles */
+    button[type="submit"] {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    /* Mejoras en la tabla para dispositivos móviles */
+    table {
+        font-size: 0.9rem;
+    }
+
+    table thead {
+        display: none;
+    }
+
+    table tbody tr {
+        display: block;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 10px;
+    }
+
+    table tbody tr td {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+
+    table tbody tr td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    table tbody tr td:last-child {
+        text-align: right;
+    }
 }
 
-.table thead th {
-    background-color: #343a40;
-    color: white;
-}
-
-.btn-primary {
-    background-color: #ff5733;
-    border: none;
-}
-
-.btn-primary:hover {
-    background-color: #c70039;
-}
-
-textarea {
-    resize: none;
-}
