@@ -37,8 +37,7 @@ function actualizarEstrellas(rating) {
 }
 
 function validarFormulario(nombre, genero, plataforma, estado, formato, fecha, valoracion) {
-    // Verificar que todos los campos obligatorios estén llenos, excepto la fecha si el estado no es "Terminado"
-    if (!nombre || !genero || !plataforma || !formato || (estado == 'Terminado' && !fecha)) {
+    if (!nombre || !genero || !plataforma || !formato || !estado) {
         mostrarAlerta('Todos los campos obligatorios deben ser completados', 'error');
         return false;
     }
@@ -49,10 +48,16 @@ function validarFormulario(nombre, genero, plataforma, estado, formato, fecha, v
             mostrarAlerta('La fecha de terminación es obligatoria cuando el estado es Terminado', 'error');
             return false;
         }
+
         if (new Date(fecha) > new Date()) {
             mostrarAlerta('La fecha de terminación no puede ser en el futuro', 'error');
             return false;
         }
+    }
+
+    if ((estado === 'En progreso' || estado === 'Pendiente') && fecha) {
+        mostrarAlerta('La fecha no debe ser completada cuando el estado es En progreso o Pendiente', 'error');
+        return false;
     }
 
     // Validar que la valoración esté entre 1 y 5
@@ -63,6 +68,25 @@ function validarFormulario(nombre, genero, plataforma, estado, formato, fecha, v
 
     return true;
 }
+
+// Función para habilitar o deshabilitar el campo de fecha según el estado
+function manejarEstadoCambio() {
+    const estado = document.getElementById('status').value;
+    const fechaInput = document.getElementById('completion-date');
+    
+    if (estado === 'En progreso' || estado === 'Pendiente' ) {
+        fechaInput.disabled = true; 
+        fechaInput.value = '';      
+    } else {
+        fechaInput.disabled = false; 
+    }
+
+}
+
+document.getElementById('status').addEventListener('change', manejarEstadoCambio);
+
+
+document.addEventListener('DOMContentLoaded', manejarEstadoCambio);
 
 // Función para mostrar la lista de recursos
 function mostrarRecursos() {
@@ -106,7 +130,7 @@ document.getElementById('resource-form').addEventListener('submit', function(eve
     if (!validarFormulario(nombre, genero, plataforma, estado, formato, fecha, valoracion)) return;
 
     const recursos = obtenerRecursos();
-    const recurso = { nombre, genero, plataforma, estado, formato, fecha: estado === 'Terminado' ? fecha: '', valoracion, resena };
+    const recurso = { nombre, genero, plataforma, estado, formato, fecha, valoracion, resena };
 
     recursos.push(recurso);
     guardarRecursos(recursos);
