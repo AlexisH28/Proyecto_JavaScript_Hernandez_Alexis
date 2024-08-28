@@ -7,6 +7,9 @@
 /* Estilos generales */
 body {
     font-family: "Poppins-Semi", sans-serif;
+    background: url(/Images/satoru-gojo-en-jujutsu-kaisen_3840x2160_xtrafondos.com.jpg);
+    background-size: cover;
+
 }
 
 h1 {
@@ -82,4 +85,3 @@ h1 {
         text-align: right;
     }
 }
-
