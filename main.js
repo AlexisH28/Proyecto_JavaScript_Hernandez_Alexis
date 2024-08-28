@@ -122,7 +122,7 @@ function editarRecurso(index) {
     document.getElementById('rating').value = recurso.valoracion;
     document.getElementById('review').value = recurso.resena;
 
-    eliminarRecurso(index); // Eliminar recurso para actualizarlo
+    eliminarRecurso(index); // Eliminar recurso para actualizarlo}
     mostrarAlerta('Recurso actualizado exitosamente');
 }
 
@@ -134,6 +134,53 @@ function eliminarRecurso(index) {
     mostrarRecursos();
     mostrarAlerta('Recurso eliminado exitosamente');
 }
+
+// Función para filtrar recursos
+function filtrarRecursos() {
+    const nombreFiltro = document.getElementById('search-bar').value.toLowerCase();
+    const estadoFiltro = document.getElementById('filter-status').value;
+    const formatoFiltro = document.getElementById('filter-format').value;
+    const plataformaFiltro = document.getElementById('filter-platform').value;
+
+    const recursos = obtenerRecursos();
+    const lista = document.getElementById('resource-list');
+    lista.innerHTML = '';
+
+    recursos.forEach((recurso, index) => {
+        if (
+            (nombreFiltro === '' || recurso.nombre.toLowerCase().includes(nombreFiltro)) &&
+            (estadoFiltro === '' || recurso.estado.includes(estadoFiltro)) &&
+            (formatoFiltro === '' || recurso.formato.includes(formatoFiltro)) &&
+            (plataformaFiltro === '' || recurso.plataforma.includes(plataformaFiltro))
+        ) {
+            const fila = document.createElement('tr');
+            fila.innerHTML = `
+                <td>${recurso.nombre}</td>
+                <td>${recurso.genero}</td>
+                <td>${recurso.plataforma.join(', ')}</td>
+                <td>${recurso.estado.join(', ')}</td>
+                <td>${recurso.formato.join(', ')}</td>
+                <td>${recurso.fecha}</td>
+                <td>${'⭐'.repeat(recurso.valoracion)}</td>
+                <td>${recurso.resena}</td>
+                <td>
+                    <button class="btn btn-info btn-sm" onclick="editarRecurso(${index})">Editar</button>
+                    <button class="btn btn-danger btn-sm" onclick="eliminarRecurso(${index})">Eliminar</button>
+                </td>
+            `;
+            lista.appendChild(fila);
+        }
+    });
+}
+
+
+document.getElementById('search-bar').addEventListener('input', filtrarRecursos);
+document.getElementById('filter-status').addEventListener('change', filtrarRecursos);
+document.getElementById('filter-format').addEventListener('change', filtrarRecursos);
+document.getElementById('filter-platform').addEventListener('change', filtrarRecursos);
+
+
+
 
 // Inicialización de la lista y manejo de estrellas
 document.addEventListener('DOMContentLoaded', () => {
